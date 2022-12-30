@@ -1,0 +1,24 @@
+{% extends 'main/index.html'%}
+{% block content%}
+    <div class="header-bar">
+        <h1>Register</h1>
+    </div>
+    <div class="card-body">
+        <form action=""  method="POST">
+            {% csrf_token %}
+            {% if form.non_field_errors%}
+            {% for error in form.non_field_errors %}
+            <p class="error1">{{error}}</p>
+            {% endfor%}
+            {%endif%}
+            {% for fm in form%}
+            {{fm.label_tag}}{{fm}}{{fm.errors|striptags}}
+            {%endfor%}
+            <input class="button" type="submit" value="Register" style="margin-top:10px;">
+        </form>
+        <p> Already have an Account? <a href="{% url 'login' %}"><strong>Login</strong></a> </p>
+    </div>
+        
+        
+        <script src="" async defer></script>
+{%endblock%}
